@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Post Scheduler
+ * @package G76 Scheduler
  */
 /*
-Plugin Name: Post Scheduler
+Plugin Name: G76 Scheduler
 Plugin URI: https://www.gorilla76.com/
 Description: A plugin that allows any field value to change by schedule
 Version: 0.1.0
@@ -32,16 +32,15 @@ if(!defined('ABSPATH')){
     die;
 }
 
-require_once(plugin_dir_path(__FILE__).'/includes/postscheduler-scripts.php');
-require_once(plugin_dir_path(__FILE__).'/includes/postscheduler-class.php');
+require_once(plugin_dir_path(__FILE__).'/includes/g76scheduler-scripts.php');
 
-class PostScheduler{
+class G76Scheduler{
     function activate(){
-        echo 'The plugin was activated';
+
     }
 
     function deactivate(){
-        echo 'The plugin was deactivated';
+        
     }
 
     function uninstall(){
@@ -49,12 +48,12 @@ class PostScheduler{
     }
 }
 
-if (class_exists('PostScheduler')){
-    $postScheduler = new PostScheduler ();
+if (class_exists('G76Scheduler')){
+    $g76Scheduler = new G76Scheduler ();
 }
 
 //activate
-register_activation_hook(__FILE__, array($postScheduler, 'activate'));
+register_activation_hook(__FILE__, array($g76Scheduler, 'activate'));
 
 //deactivate
-register_activation_hook(__FILE__, array($postScheduler, 'deactivate'));
+register_activation_hook(__FILE__, array($g76Scheduler, 'deactivate'));
