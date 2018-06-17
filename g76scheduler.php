@@ -32,13 +32,15 @@ if(!defined('ABSPATH')){
     die;
 }
 
-require_once(plugin_dir_path(__FILE__).'/includes/g76scheduler-scripts.php');
-
 class G76Scheduler{
     function __construct(){
         add_action('init', array($this,'custom_post_type')); 
     }
     
+    function register_admin_scripts(){
+        add_action('admin_enqueue_scripts', array ($this, 'enqueue'));
+    }
+
     function activate(){
         $this->custom_post_type();
         flush_rewrite_rules();
@@ -48,18 +50,20 @@ class G76Scheduler{
         flush_rewrite_rules();
     }
 
-    function uninstall(){
-
-    }
-
     function custom_post_type(){
 
         register_post_type('scheduler', ['public'=>true, 'label'=> 'Scheduler']);
+    }
+
+    function enqueue(){
+        wp_enqueue_style('g76s-main-style', plugins_url('/g76scheduler/css/style.css', __FILE__));
+        wp_enqueue_script('g76s-main-script', plugins_url('/g76scheduler/script/main.js', __FILE__));
     }
 }
 
 if (class_exists('G76Scheduler')){
     $g76Scheduler = new G76Scheduler ();
+    $g76Scheduler->register_admin_scripts();
 }
 
 //activate
