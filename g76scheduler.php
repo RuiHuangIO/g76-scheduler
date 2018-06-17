@@ -1,6 +1,6 @@
 <?php
 /**
- * @package G76 Scheduler
+ * @package G76Scheduler
  */
 /*
 Plugin Name: G76 Scheduler
@@ -35,16 +35,26 @@ if(!defined('ABSPATH')){
 require_once(plugin_dir_path(__FILE__).'/includes/g76scheduler-scripts.php');
 
 class G76Scheduler{
+    function __construct(){
+        add_action('init', array($this,'custom_post_type')); 
+    }
+    
     function activate(){
-
+        $this->custom_post_type();
+        flush_rewrite_rules();
     }
 
     function deactivate(){
-        
+        flush_rewrite_rules();
     }
 
     function uninstall(){
 
+    }
+
+    function custom_post_type(){
+
+        register_post_type('scheduler', ['public'=>true, 'label'=> 'Scheduler']);
     }
 }
 
