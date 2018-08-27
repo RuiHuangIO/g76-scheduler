@@ -29,13 +29,38 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 Copyright 2005-2015 Automattic, Inc.
 */
 
+//Abort if this file is called directly
 defined('ABSPATH') or die ('You are not supposed to be here :(');
 
+//require once composer autoload
 if (file_exists(dirname(__FILE__). '/vendor/autoload.php')){
-    require_once dirname(__FILE__).'/vendor/autoload.php';
+	require_once dirname(__FILE__).'/vendor/autoload.php';
 }
+
+//CONSTANTS
 define ('PLUGIN_PATH', plugin_dir_path(__FILE__));
 define ('PLUGIN_URL', plugin_dir_url(__FILE__));
+define ('PLUGIN', plugin_basename(__FILE__));
+
+use Inc\Base\Activate;
+use Inc\Base\Deactivate;
+
+/**
+ * Plugin Activation
+ */
+function activate_g76_scheduler(){
+	Activate::activate();
+}
+
+/**
+ * Plugin deactivation
+ */
+function deactivate_g76_scheduler(){
+	Deactivate:: deactivate();
+}
+
+register_activation_hook(__FILE__, 'activate_g76_scheduler');
+register_activation_hook(__FILE__, 'deactivate_g76_scheduler');
 
 if (class_exists('Inc\\Init')){
 	Inc\Init::register_services();
