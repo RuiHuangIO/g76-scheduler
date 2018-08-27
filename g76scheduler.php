@@ -52,7 +52,7 @@ if (!class_exists('G76Scheduler')){
             return $links;
         }
         public function add_admin_pages(){
-            add_menu_page('G76 Scheduler', 'Scheduler', 'manage_opions', 'g76_scheduler', array($this, 'admin_index'), 'dashicons-calendar-alt', 110);
+            add_menu_page('G76 Scheduler', 'Scheduler', 'manage_options', 'g76_scheduler', array($this, 'admin_index'), 'dashicons-calendar-alt', 110);
         }
         public function admin_index(){
 			require_once plugin_dir_path( __FILE__ ) . 'templates/admin.php';
