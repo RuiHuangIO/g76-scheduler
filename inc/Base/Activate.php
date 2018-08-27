@@ -3,7 +3,7 @@
  * @package G76Scheduler
  */
 
-namespace Inc;
+namespace Inc\Base;
 
 class Activate
 {

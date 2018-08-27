@@ -2,7 +2,10 @@
 /**
  * @package G76Scheduler
  */
-class G76SchedulerPluginDeactivate
+
+namespace Inc\Base;
+
+class Deactivate
 {
 	public static function deactivate() {
 		flush_rewrite_rules();
