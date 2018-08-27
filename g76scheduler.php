@@ -31,6 +31,12 @@ Copyright 2005-2015 Automattic, Inc.
 
 defined('ABSPATH') or die ('You are not supposed to be here :(');
 
+if (file_exists(dirname(__FILE__). '/vendor/autoload.php')){
+    require_once dirname(__FILE__).'/vendor/autoload.php';
+}
+
+use Inc\activate;
+
 if (!class_exists('G76Scheduler')){
     class G76Scheduler{
         public $plugin;
@@ -68,8 +74,8 @@ if (!class_exists('G76Scheduler')){
             wp_enqueue_script('g76s-main-script', plugins_url('/g76scheduler/script/main.js', __FILE__));
         }
         function activate(){
-            require_once plugin_dir_path( __FILE__ ) . 'inc/g76scheduler-plugin-activate.php';
-			G76SchedulerPluginActivate::activate();
+            //require_once plugin_dir_path( __FILE__ ) . 'inc/g76scheduler-plugin-activate.php';
+			Activate::activate();
         }
     }
 

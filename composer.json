@@ -1,0 +1,13 @@
+{
+    "name": "rui/g76-scheduler",
+    "description": "Scheduling function plugin",
+    "type": "project",
+    "license": "GPL",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./inc"
+        }
+    }
+}
