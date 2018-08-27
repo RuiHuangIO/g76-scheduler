@@ -29,9 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 Copyright 2005-2015 Automattic, Inc.
 */
 
-if(!defined('ABSPATH')){
-    die;
-}
+defined('ABSPATH') or die ('You are not supposed to be here :(');
 
 if (!class_exists('G76Scheduler')){
     class G76Scheduler{
@@ -43,11 +41,11 @@ if (!class_exists('G76Scheduler')){
         function register(){
             add_action('admin_enqueue_scripts', array ($this, 'enqueue'));
             add_action('admin_menu', array ($this, 'add_admin_pages'));
-            add_filter('plugin_action_links_$this->plugin', array($this, 'settings_link'));
+            add_filter('plugin_action_links_'.$this->plugin, array($this, 'settings_link'));
         }
         
         public function settings_link($links){
-            $settings_link='<a href="admin.php?page=g76_scheduler">Settings</a>';
+            $settings_link='<a href="options-general.php?page=g76_scheduler">Settings</a>';
             array_push($links, $settings_link);
             return $links;
         }
