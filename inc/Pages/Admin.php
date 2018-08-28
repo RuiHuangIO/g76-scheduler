@@ -4,19 +4,37 @@
 */
 namespace Inc\Pages;
 
+use \Inc\Api\SettingsApi;
 use \Inc\Base\BaseController;
+use \Inc\Api\Callbacks\AdminCallbacks;
 
 class Admin extends BaseController{
 
+  public $settings;
+
+	public $pages = array();
+
   public function register(){
-    add_action('admin_menu', array ($this, 'add_admin_pages'));
+    $this->settings = new SettingsApi();
+
+    $this->callbacks = new AdminCallbacks();
+
+    $this->setPages();
+
+    $this->settings->addPages($this->pages)->register();
   }
 
-  public function add_admin_pages(){
-    add_menu_page('G76 Scheduler', 'Scheduler', 'manage_options', 'g76_scheduler', array($this, 'admin_index'), 'dashicons-calendar-alt', 110);
-  }
-  
-  public function admin_index(){
-    require_once $this->plugin_path. 'templates/admin.php';
+  public function setPages(){
+    $this->pages = array(
+      array(
+        'page_title' => 'G76 Scheduler',
+        'menu_title' => 'Scheduler',
+        'capability' => 'manage_options',
+        'menu_slug' => 'g76_scheduler',
+        'callback' => array($this->callbacks,'adminDashboard'),
+        'icon_url' => 'dashicons-calendar-alt',
+        'position' => 110
+      )
+    );
   }
 }
