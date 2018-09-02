@@ -1,3 +1,2 @@
-A Wordpress Plugin that changes post values when scheduled.
-
+My wordpress plugin experiment
 
