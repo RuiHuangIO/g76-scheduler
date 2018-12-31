@@ -1,20 +1,23 @@
 <?php
-/** 
-* @package G76Scheduler
-*/
+
+/**
+ * @package the-plug
+ */
 namespace Inc\Pages;
 
 use \Inc\Api\SettingsApi;
 use \Inc\Base\BaseController;
 use \Inc\Api\Callbacks\AdminCallbacks;
 
-class Admin extends BaseController{
+class Admin extends BaseController
+{
 
   public $settings;
 
-	public $pages = array();
+  public $pages = array();
 
-  public function register(){
+  public function register()
+  {
     $this->settings = new SettingsApi();
 
     $this->callbacks = new AdminCallbacks();
@@ -24,14 +27,15 @@ class Admin extends BaseController{
     $this->settings->addPages($this->pages)->register();
   }
 
-  public function setPages(){
+  public function setPages()
+  {
     $this->pages = array(
       array(
-        'page_title' => 'G76 Scheduler',
-        'menu_title' => 'Scheduler',
+        'page_title' => 'The Plug',
+        'menu_title' => 'The Plug',
         'capability' => 'manage_options',
-        'menu_slug' => 'g76_scheduler',
-        'callback' => array($this->callbacks,'adminDashboard'),
+        'menu_slug' => 'the_plug',
+        'callback' => array($this->callbacks, 'adminDashboard'),
         'icon_url' => 'dashicons-calendar-alt',
         'position' => 110
       )

@@ -2,11 +2,11 @@
 
 /**
  * Trigger this file on Plugin uninstall
- * 
- * @package G76Scheduler
- * 
+ *
+ * @package the-plug
+ *
  */
 
- if(!defined('WP_UNINSTALL_PLUGIN')){
-     die;
- }
+if (!defined('WP_UNINSTALL_PLUGIN')) {
+    die;
+}

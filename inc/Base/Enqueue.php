@@ -1,19 +1,23 @@
 <?php
-/** 
-* @package G76Scheduler
-*/
+
+/**
+ * @package the-plug
+ */
 namespace Inc\Base;
 
 use \Inc\Base\BaseController;
 
-class Enqueue extends BaseController{
+class Enqueue extends BaseController
+{
 
-  public function register(){
-    add_action('admin_enqueue_scripts', array ($this, 'enqueue'));
+  public function register()
+  {
+    add_action('admin_enqueue_scripts', array($this, 'enqueue'));
   }
-  function enqueue(){
+  function enqueue()
+  {
     //enqueue assets
-    wp_enqueue_style('g76s-main-style', $this->plugin_url.'assets/css/style.css');
-    wp_enqueue_script('g76s-main-script', $this->plugin_url.'assets/js/main.js');
+    wp_enqueue_style('the-plug-main-style', $this->plugin_url . 'assets/css/style.css');
+    wp_enqueue_script('the-plug-main-script', $this->plugin_url . 'assets/js/main.js');
   }
 }

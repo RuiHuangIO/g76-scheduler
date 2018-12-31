@@ -1,6 +1,7 @@
 <?php
+
 /**
- * @package G76Scheduler
+ * @package the-plug
  */
 
 namespace Inc;
@@ -11,7 +12,8 @@ final class Init
    * store all the classes inside an array
    * @return array full list of classes
    */
-  public static function get_services(){
+  public static function get_services()
+  {
     return [
       Pages\Admin::class,
       Base\Enqueue::class,
@@ -21,13 +23,14 @@ final class Init
 
   /**
    * Loop through the classes, initialize them and call the register() method if it exists
-   * @return 
+   * @return
    */
-  
-	public static function register_services() {
-    foreach (self::get_services() as $class){
+
+  public static function register_services()
+  {
+    foreach (self::get_services() as $class) {
       $service = self::instantiate($class);
-      if (method_exists($service, 'register')){
+      if (method_exists($service, 'register')) {
         $service->register();
       }
     }
@@ -38,8 +41,9 @@ final class Init
    * @param class $class class from the services array
    * @return class instance new instance of the class
    */
-  
-  private static function instantiate($class){
+
+  private static function instantiate($class)
+  {
     $service = new $class();
     return $service;
   }
@@ -62,7 +66,7 @@ final class Init
 // 				add_action('admin_menu', array ($this, 'add_admin_pages'));
 // 				add_filter('plugin_action_links_'.$this->plugin, array($this, 'settings_link'));
 // 			}
-        
+
 // 			public function settings_link($links){
 // 				$settings_link='<a href="options-general.php?page=g76_scheduler">Settings</a>';
 // 				array_push($links, $settings_link);
@@ -75,7 +79,7 @@ final class Init
 // 			function custom_post_type(){
 // 				register_post_type('scheduler', ['public'=>true, 'label'=> 'Scheduler']);
 // 			}
-	
+
 // 			function enqueue(){
 // 				wp_enqueue_style('g76s-main-style', plugins_url('/assets/css/style.css', __FILE__));
 // 				wp_enqueue_script('g76s-main-script', plugins_url('/assets/script/main.js', __FILE__));

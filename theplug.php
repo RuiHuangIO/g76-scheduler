@@ -1,15 +1,16 @@
 <?php
+
 /**
- * @package G76Scheduler
+ * @package the-plug
  */
 /*
-Plugin Name: G76 Scheduler
-Plugin URI: https://www.gorilla76.com/
-Description: A plugin that allows any field value to change by schedule
+Plugin Name: the-plug
+Plugin URI: https://ruihuang.io/
+Description: Rui Huang's plugin
 Version: 0.1.0
-Author: Rui Huang @ Gorilla76
+Author: Rui Huang
 License: GPLv2 or later
-*/
+ */
 
 /*
 This program is free software; you can redistribute it and/or
@@ -27,33 +28,35 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 Copyright 2005-2015 Automattic, Inc.
-*/
+ */
 
 //Abort if this file is called directly
-defined('ABSPATH') or die ('You are not supposed to be here :(');
+defined('ABSPATH') or die('You are not supposed to be here :(');
 
 //require once composer autoload
-if (file_exists(dirname(__FILE__). '/vendor/autoload.php')){
-	require_once dirname(__FILE__).'/vendor/autoload.php';
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+	require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
 /**
  * Plugin Activation
  */
-function activate_g76_scheduler(){
+function activate_the_plug()
+{
 	Inc\Base\Activate::activate();
 }
 
 /**
  * Plugin deactivation
  */
-function deactivate_g76_scheduler(){
-	Inc\Base\Deactivate:: deactivate();
+function deactivate_the_plug()
+{
+	Inc\Base\Deactivate::deactivate();
 }
 
-register_activation_hook(__FILE__, 'activate_g76_scheduler');
-register_activation_hook(__FILE__, 'deactivate_g76_scheduler');
+register_activation_hook(__FILE__, 'activate_the_plug');
+register_activation_hook(__FILE__, 'deactivate_the_plug');
 
-if (class_exists('Inc\\Init')){
+if (class_exists('Inc\\Init')) {
 	Inc\Init::register_services();
 }
