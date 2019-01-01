@@ -18,6 +18,6 @@ class Enqueue extends BaseController
   {
     //enqueue assets
     wp_enqueue_style('the-plug-main-style', $this->plugin_url . 'assets/style.min.css');
-    wp_enqueue_script('the-plug-main-script', $this->plugin_url . 'assets/js/main.js');
+    wp_enqueue_script('the-plug-main-script', $this->plugin_url . 'assets/main.min.js');
   }
 }

@@ -1,5 +1,5 @@
 <div class="wrap">
-  <h1>haHAA from template</h1>
+  <h1>The Plug</h1>
   <?php settings_errors(); ?>
 
   <ul class="nav nav-tabs">
@@ -12,7 +12,7 @@
     <div id="tab-1" class="tab-pane active">
       <form method="post" action="options.php">
         <?php
-        settings_fields('the_plug_options_group');
+        settings_fields('the_plug_settings');
         do_settings_sections('the_plug');
         submit_button();
         ?>

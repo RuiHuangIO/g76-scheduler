@@ -29,16 +29,6 @@ class AdminCallbacks extends BaseController
     return require_once("$this->plugin_path/templates/widget.php");
   }
 
-  public function thePlugOptionsGroup($input)
-  {
-    return $input;
-  }
-
-  public function thePlugAdminSection()
-  {
-    echo 'section haHAA';
-  }
-
   public function thePlugTextExample()
   {
     $value = esc_attr(get_option('text_example'));
