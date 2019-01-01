@@ -5,12 +5,10 @@
   list-style-type: none;
   border-bottom: 1px solid transparent;
 }
-
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
 }
-
 .nav-tabs > li > a {
   margin-right: 2px;
   line-height: 1.5;
@@ -20,11 +18,9 @@
   text-decoration: none;
   float: left;
 }
-
 .nav-tabs > li > a:hover {
   background-color: #eee #eee #ddd;
 }
-
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
@@ -34,13 +30,11 @@
   border-color: transparent;
   text-decoration: none;
 }
-
 .tab-content > .tab-pane {
   float: left;
   width: 100%;
   display: none;
 }
-
 .tab-content > .tab-pane.active {
   display: block;
   padding: 10px;

@@ -1,0 +1,25 @@
+{
+  "name": "the-plug-runner",
+  "version": "1.0.0",
+  "description": "The Plug task runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuiHuangIO/the-plug.git"
+  },
+  "keywords": [],
+  "author": "Rui Huang",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/RuiHuangIO/the-plug/issues"
+  },
+  "homepage": "https://github.com/RuiHuangIO/the-plug#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
